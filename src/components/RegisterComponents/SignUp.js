@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import logoWhite from "../../images/logoWhite.png";
 import { FcGoogle } from 'react-icons/fc'
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import { createUserWithEmailAndPassword ,signInWithPopup} from "firebase/auth";
 import { auth,googleProvider,db} from "../database/firebase-config";
 import { collection, addDoc,setDoc,doc } from "firebase/firestore"; 
 
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [userName, setuserName] = useState("");
   console.log(auth.currentUser?.email);
@@ -17,6 +18,7 @@ const SignUp = () => {
     try{
       await createUserWithEmailAndPassword(auth,email,userName).then(() => {
       addDataToFirestore();
+      navigate("/Home")
     })
     } catch(err){
       console.error(err);
@@ -27,6 +29,7 @@ const SignUp = () => {
     try{
     await signInWithPopup(auth , googleProvider).then(() =>{
       addDataToFirestore();
+
     })
     } catch(err){
       console.error(err);
