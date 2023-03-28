@@ -7,6 +7,9 @@ import "firebase/database";
 import {signInWithPopup} from "firebase/auth";
 import { auth,googleProvider} from "../database/firebase-config";
 import { Navigate,useNavigate} from "react-router-dom";
+import {db} from "../database/firebase-config";
+import { collection, addDoc,setDoc,doc } from "firebase/firestore"; 
+
 
 
 
@@ -19,7 +22,7 @@ function Login() {
   const signInWithgoogle = async () => {
     try{
     await signInWithPopup(auth , googleProvider).then(() =>{
-      // addDataToFirestore();
+      addDataToFirestore();
       navigate("/Home")
 
     })
@@ -28,6 +31,13 @@ function Login() {
     }
   }
   
+
+  const addDataToFirestore = async () => {
+    await setDoc(doc(db, "profile", "x2c3v4"), {
+      email: email
+    } );
+  };
+
 
 
   return (

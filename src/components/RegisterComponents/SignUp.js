@@ -28,7 +28,7 @@ const SignUp = () => {
   const signInWithgoogle = async () => {
     try{
     await signInWithPopup(auth , googleProvider).then(() =>{
-      // addDataToFirestore();
+      addDataToFirestore();
       navigate("/Home")
 
     })
