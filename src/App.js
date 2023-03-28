@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SignUp />}></Route>
           <Route path="/Home" element={<Home />}></Route>
-          {/* <Route path="/SignUp" element={<SignUp />}></Route> */}
+          {<Route path="/login" element={<Login/>}></Route> }
           <Route path="/Adopt" element={<Adopt />}></Route>
           <Route path="/domgiprofile" element={<DomgiProfile />}></Route>
 
