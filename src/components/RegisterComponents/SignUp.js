@@ -28,7 +28,8 @@ const SignUp = () => {
   const signInWithgoogle = async () => {
     try{
     await signInWithPopup(auth , googleProvider).then(() =>{
-      addDataToFirestore();
+      // addDataToFirestore();
+      navigate("/Home")
 
     })
     } catch(err){
@@ -95,8 +96,8 @@ const SignUp = () => {
           </div>
           <div className=" my-2 flex items-center justify-center">
           
-              <button className=" text-xl text-green-500 hover:text-green-800">  <Link to="/Login">Login</Link> </button>
-        
+              {/* <button className=" text-xl text-green-500 hover:text-green-800">  <Link to="/Login">Login</Link> </button> */}
+              Already have an account? <button className=" text-green-500 hover:text-green-800">  <Link to="/login"> &nbsp; log in</Link> </button>
           </div>
 
           <hr className=" my-7"/>
