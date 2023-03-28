@@ -11,18 +11,18 @@ import {db} from "../database/firebase-config";
 
 const Adopt =  () => {
   const [data,setData] = useState([]);
-  useEffect(()  => {
-    const fun =  async() => {
-      const querySnapshot = await getDocs(collection(db, "Adoption"));
-      querySnapshot.forEach((doc) => {
-
-        console.log(doc.data());
-      });
-      
-    }
-    fun();
-
-  },[])
+    useEffect(()  => {
+      const fun =  async() => {
+        const querySnapshot = await getDocs(collection(db, "Adoption"));
+        const adopdata = [];
+        querySnapshot.forEach((childSnapshot) => {
+          data.push(childSnapshot.data());
+        });
+        console.log(data)
+        setData(adopdata);
+      }
+      fun();
+    },[])
  
   return ( 
 
