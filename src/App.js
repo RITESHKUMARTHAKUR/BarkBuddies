@@ -1,3 +1,6 @@
+
+
+
 import DomgiProfile from './components/DomgiProfileComponent/DomgiProfile';
 import "./App.css";
 import Home from "./components/HomeComponents/Home";
@@ -18,6 +21,8 @@ function App() {
           <Route path="/Home" element={<Home />}></Route>
           {<Route path="/login" element={<Login/>}></Route> }
           <Route path="/Adopt" element={<Adopt />}></Route>
+          <Route path="/domgiprofile" element={<DomgiProfile />}></Route>
+
         </Routes>
       </BrowserRouter>
     </>
