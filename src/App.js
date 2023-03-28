@@ -1,6 +1,3 @@
-
-
-
 import DomgiProfile from './components/DomgiProfileComponent/DomgiProfile';
 import "./App.css";
 import Home from "./components/HomeComponents/Home";
@@ -8,6 +5,7 @@ import Login from "./components/RegisterComponents/Login";
 import Navbar from "./components/NavbarComponent/Navbar";
 import SignUp from "./components/RegisterComponents/SignUp";
 import Logout from "./logout";
+import Footer from "./components/FooterComponent/Footer";
 import Adopt from "./components/AdoptComponent/Adopt";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Mate from './components/MateComponent/Mate';
@@ -18,7 +16,8 @@ function App() {
     return (
     <>
       <BrowserRouter>
-        <Navbar />
+        {window.location.pathname != "/"  ? <Navbar /> : null }
+        
         <Routes>
           <Route path="/" element={<SignUp />}></Route>
           <Route path="/Home" element={<Home />}></Route>
@@ -29,6 +28,7 @@ function App() {
           <Route path="/store" element={<Store />}></Route>
 
         </Routes>
+        {window.location.pathname != "/"  ? <Footer /> : null }
       </BrowserRouter>
     </>
   );
