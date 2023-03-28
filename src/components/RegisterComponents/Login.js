@@ -4,15 +4,12 @@ import { FcGoogle } from 'react-icons/fc'
 import { Link } from "react-router-dom";
 
 
+
+
 const Login = () => {
   const [email, setemail] = useState("");
   //   const [password, setPassword] = useState("");
-
-  const handleLogin = (event) => {
-    event.preventDefault();
-    console.log(`email: ${email} `);
-    // Handle authentication logic here
-  };
+  
 
   return (
     <div className=" min-h-screen bg-gradient-to-br from-gray-500 to-black text-white pt-20 ">
@@ -24,7 +21,7 @@ const Login = () => {
         <h1 className=" font-bold text-5xl my-10 sm:mt-4 ">Welcome!</h1>
 
         <div>
-          <form onSubmit={handleLogin} className=" flex flex-col">
+          <form  className=" flex flex-col">
             <label className=" font-semibold ">
               Email:
               <input
