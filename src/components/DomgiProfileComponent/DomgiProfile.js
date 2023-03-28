@@ -15,20 +15,20 @@ import { useState } from "react";
 const DomgiProfile = () => {
   const slides = [
     {
-      url: { doggie1 },
+      url: doggie1 ,
     },
     {
-      url: { domgie2 },
+      url:  domgie2 ,
     },
     {
-      url: { domgie3 },
+      url: domgie3 ,
     },
 
     {
-      url: { domgie4 },
+      url:  domgie4 ,
     },
     {
-      url: { domgie5 },
+      url: domgie5 ,
     },
   ];
 
