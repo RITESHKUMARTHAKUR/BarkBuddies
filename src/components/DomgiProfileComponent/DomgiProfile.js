@@ -46,8 +46,8 @@ const DomgiProfile = () => {
   };
 
   return (
-    <div className=' flex flex-row  justify-between pt-40'>
-    <div className='max-w-[50%] h-[30rem] w-full m-auto  px-4 relative group'>
+    <div className=' flex flex-row  justify-around pt-32'>
+    <div className='max-w-[50%] h-[30rem] w-full   px-4 relative group'>
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
