@@ -1,8 +1,9 @@
 
 import './App.css';
-import Login from './components/Login';
-import Navbar from './components/Navbar';
-import SignUp from './components/SignUp';
+import Login from './components/RegisterComponents/Login';
+import Navbar from './components/NavbarComponent/Navbar';
+import SignUp from './components/RegisterComponents/SignUp';
+import Adopt from './components/AdoptComponent/Adopt'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -10,11 +11,13 @@ function App() {
     <>
     
     <BrowserRouter>
-    <Navbar/>
 
+    <Navbar/>
     <Routes>
     <Route  path="/Login"element={<Login />}></Route>
     <Route  path="/SignUp"element={<SignUp />}></Route>
+    <Route  path="/Adopt"element={<Adopt />}></Route>
+    
 
     </Routes>
 

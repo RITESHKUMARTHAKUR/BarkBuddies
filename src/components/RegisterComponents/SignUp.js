@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import logoWhite from "../images/logoWhite.png";
+import logoWhite from "../../images/logoWhite.png";
 import { FcGoogle } from 'react-icons/fc'
 import { Link } from "react-router-dom";
 
 
-const Login = () => {
+const SignUp = () => {
   const [email, setemail] = useState("");
+  const [userName, setuserName] = useState("");
   //   const [password, setPassword] = useState("");
 
   const handleLogin = (event) => {
@@ -15,16 +16,27 @@ const Login = () => {
   };
 
   return (
-    <div className=" min-h-screen bg-gradient-to-br from-gray-500 to-black text-white">
+    <div className=" min-h-screen bg-gradient-to-br  from-amber-500 to-amber-800 text-white pt-20 z-0">
       <div className=" flex items-center  w-full flex-col ">
         <div className="  flex items-center justify-center mt-24 lg:my-8">
           <img className=" w-1/3 rounded-3xl sm:w-1/5 lg:w-1/6" src={logoWhite} alt="" />
         </div>
 
         <h1 className=" font-bold text-5xl my-10 sm:mt-4 ">Welcome!</h1>
-
+        <p className=" text-lg">Please fill the information below :</p>
         <div>
           <form onSubmit={handleLogin} className=" flex flex-col">
+
+          <label className=" font-semibold ">
+              User Name:
+              <input
+                className=" border-gray-800 border-solid w-full border p-3 px-10 text-black "
+                type="text"
+                value={userName}
+                onChange={(event) => setuserName(event.target.value)}
+              />
+            </label>
+
             <label className=" font-semibold ">
               Email:
               <input
@@ -34,6 +46,7 @@ const Login = () => {
                 onChange={(event) => setemail(event.target.value)}
               />
             </label>
+            
             <br />
             {/* <label>
               Password:
@@ -52,10 +65,11 @@ const Login = () => {
             </button>
           </form>
           <div className=" my-2 flex items-center justify-center">
-            <p className=" text-lg">
-              Don't have an account? <button className=" text-green-500 hover:text-green-800">  <Link to="/Signup"> Sign up</Link> </button>
-            </p>
+          
+              <button className=" text-xl text-green-500 hover:text-green-800">  <Link to="/Login">Login</Link> </button>
+        
           </div>
+
           <hr className=" my-7"/>
 
             <div className=" flex justify-center items-center my-10">
@@ -69,4 +83,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
