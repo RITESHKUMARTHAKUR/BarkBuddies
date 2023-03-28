@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import { RxDotFilled } from "react-icons/rx";
-import { FaUserCircle } from "react-icons/fa";
-import doggie1 from "../../images/Adoption/doggie1.png";
-import domgie2 from "../../images/Adoption/domgie2.jpg";
-import domgie3 from "../../images/Adoption/domgie3.jpg";
-import domgie4 from "../../images/Adoption/domgie4.jpg";
-import domgie5 from "../../images/Adoption/domgie5.jpg";
-=======
 import React from 'react'
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
@@ -18,7 +7,6 @@ import domgie2 from '../../images/Adoption/domgie2.jpg'
 import domgie3 from '../../images/Adoption/domgie3.jpg'
 import domgie4 from '../../images/Adoption/domgie4.jpg'
 import domgie5 from '../../images/Adoption/domgie5.jpg'
->>>>>>> 68148017605a4fef67623ac8a5aec6550367c2d4
 
 // import BarkBuddieslogo from "../../images/BarkBuddieslogo.png";
 // import Background from "../../images/Adoption/Background.jpg";
