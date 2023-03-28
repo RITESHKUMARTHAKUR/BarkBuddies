@@ -3,7 +3,8 @@ import logoWhite from "../../images/logoWhite.png";
 import { FcGoogle } from 'react-icons/fc'
 import { Link } from "react-router-dom";
 import { createUserWithEmailAndPassword ,signInWithPopup} from "firebase/auth";
-import { auth,googleProvider } from "../database/firebase-config";
+import { auth,googleProvider,db} from "../database/firebase-config";
+import { collection, addDoc,setDoc,doc } from "firebase/firestore"; 
 
 
 const SignUp = () => {
@@ -14,7 +15,9 @@ const SignUp = () => {
 
   const register = async () => {
     try{
-    await createUserWithEmailAndPassword(auth,email,userName);
+      await createUserWithEmailAndPassword(auth,email,userName).then(() => {
+      addDataToFirestore();
+    })
     } catch(err){
       console.error(err);
     }
@@ -22,11 +25,21 @@ const SignUp = () => {
 
   const signInWithgoogle = async () => {
     try{
-    await signInWithPopup(auth , googleProvider);
+    await signInWithPopup(auth , googleProvider).then(() =>{
+      addDataToFirestore();
+    })
     } catch(err){
       console.error(err);
     }
   }
+
+
+  const addDataToFirestore = async () => {
+    await setDoc(doc(db, "profile", "x2c3v4"), {
+      name:  userName,
+      email: email
+    } );
+  };
 
   return (
     <div className=" min-h-screen bg-gradient-to-br  from-amber-500 to-amber-800 text-white pt-20 z-0">
@@ -38,7 +51,7 @@ const SignUp = () => {
         <h1 className=" font-bold text-5xl my-10 sm:mt-4 ">Welcome!</h1>
         <p className=" text-lg">Please fill the information below :</p>
         <div>
-          <form className=" flex flex-col">
+          <div className=" flex flex-col">
 
           <label className=" font-semibold ">
               User Name:
@@ -76,7 +89,7 @@ const SignUp = () => {
             >
               Continue
             </button>
-          </form>
+          </div>
           <div className=" my-2 flex items-center justify-center">
           
               <button className=" text-xl text-green-500 hover:text-green-800">  <Link to="/Login">Login</Link> </button>
