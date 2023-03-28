@@ -4,6 +4,7 @@ import Home from "./components/HomeComponents/Home";
 import Login from "./components/RegisterComponents/Login";
 import Navbar from "./components/NavbarComponent/Navbar";
 import SignUp from "./components/RegisterComponents/SignUp";
+import Logout from "./logout";
 import Adopt from "./components/AdoptComponent/Adopt";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/Home" element={<Home />}></Route>
           {<Route path="/login" element={<Login/>}></Route> }
           <Route path="/Adopt" element={<Adopt />}></Route>
+          <Route path="/Logout" element={<Logout />}></Route>
         </Routes>
       </BrowserRouter>
     </>
