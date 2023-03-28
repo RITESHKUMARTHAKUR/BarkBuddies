@@ -7,6 +7,7 @@ import Home from "./components/HomeComponents/Home";
 import Login from "./components/RegisterComponents/Login";
 import Navbar from "./components/NavbarComponent/Navbar";
 import SignUp from "./components/RegisterComponents/SignUp";
+import Logout from "./logout";
 import Adopt from "./components/AdoptComponent/Adopt";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
