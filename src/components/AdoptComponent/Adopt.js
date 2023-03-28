@@ -1,14 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {AiOutlineFilter} from "react-icons/ai"
 import doggie1 from '../../images/Adoption/doggie1.png'
 import domgie2 from '../../images/Adoption/domgie2.jpg'
 import domgie3 from '../../images/Adoption/domgie3.jpg'
 import domgie4 from '../../images/Adoption/domgie4.jpg'
 import domgie5 from '../../images/Adoption/domgie5.jpg'
+import { collection, getDocs } from "firebase/firestore";
+import {db} from "../database/firebase-config";
 
-const Adopt = () => {
-  return (
-    
+
+const Adopt =  () => {
+  const [data,setData] = useState([]);
+  useEffect(()  => {
+    const fun =  async() => {
+      const querySnapshot = await getDocs(collection(db, "Adoption"));
+      querySnapshot.forEach((doc) => {
+
+        console.log(doc.data());
+      });
+      
+    }
+    fun();
+
+  },[])
+ 
+  return ( 
+
 
 
       <section className="   pt-24 body-font ">
