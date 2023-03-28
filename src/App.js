@@ -9,6 +9,8 @@ import Navbar from "./components/NavbarComponent/Navbar";
 import SignUp from "./components/RegisterComponents/SignUp";
 import Adopt from "./components/AdoptComponent/Adopt";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Mate from './components/MateComponent/Mate';
+import Store from './components/StoreComponent/Store';
 
 function App() { 
   
@@ -22,6 +24,8 @@ function App() {
           {<Route path="/login" element={<Login/>}></Route> }
           <Route path="/Adopt" element={<Adopt />}></Route>
           <Route path="/domgiprofile" element={<DomgiProfile />}></Route>
+          <Route path="/mate" element={<Mate />}></Route>
+          <Route path="/store" element={<Store />}></Route>
 
         </Routes>
       </BrowserRouter>
