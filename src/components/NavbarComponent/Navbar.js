@@ -23,11 +23,11 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between items-center w-full h-20 z-10 bg-[#FFB267]  px-4 fixed text-black ">
-      <div className= "  w-32   md:w-[18rem] ml-2 md:mr-[32rem]">
+      <div className= "  w-32   md:w-[18rem] ml-2 ">
         <img className="rounded-3xl " src={BarkBuddieslogo} alt="" />
       </div>
 
-      <ul className="hidden md:flex mr-[12rem] ">
+      <ul className="hidden md:flex ml-[12rem] ">
         {links.map(({ id, link }) => (
           <li
             key={id}
@@ -47,10 +47,11 @@ const Navbar = () => {
           <div class="relative mb-4 flex w-full flex-wrap items-stretch ">
             <input
               type="search"
-              class=" hidden md:flex relative m-0 block w-[1%] min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary-600 focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
+              class=" ml-[100px] hidden md:flex relative m-0 block w-[1%] min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary-600 focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200"
               placeholder="Search"
               aria-label="Search"
               aria-describedby="button-addon2"
+
             />
             <span
               class="input-group-text flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700 dark:text-neutral-200"
