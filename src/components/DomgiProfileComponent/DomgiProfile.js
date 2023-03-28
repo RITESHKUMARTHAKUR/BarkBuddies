@@ -2,6 +2,11 @@ import React from 'react'
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import {FaUserCircle } from "react-icons/fa";
+import doggie1 from '../../images/Adoption/doggie1.png'
+import domgie2 from '../../images/Adoption/domgie2'
+import domgie3 from '../../images/Adoption/domgie3'
+import domgie4 from '../../images/Adoption/domgie4'
+import domgie5 from '../../images/Adoption/domgie5'
 
 // import BarkBuddieslogo from "../../images/BarkBuddieslogo.png";
 // import Background from "../../images/Adoption/Background.jpg";
@@ -10,7 +15,7 @@ import { useState } from 'react';
 const DomgiProfile = () => {
   const slides = [
     {
-      url: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80',
+      url: {doggie1},
     },
     {
       url: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
@@ -46,8 +51,8 @@ const DomgiProfile = () => {
   };
 
   return (
-    <div className=' flex flex-row  justify-between pt-40'>
-    <div className='max-w-[50%] h-[30rem] w-full m-auto  px-4 relative group'>
+    <div className=' flex flex-row  justify-around pt-32'>
+    <div className='max-w-[50%] h-[30rem] w-full   px-4 relative group'>
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
