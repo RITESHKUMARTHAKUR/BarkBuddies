@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import {FaUserCircle } from "react-icons/fa";
+
 // import logoWhite from "../images/logoWhite.png";
 import BarkBuddieslogo from "../../images/BarkBuddieslogo.png";
 
@@ -27,7 +29,7 @@ const Navbar = () => {
         <img className="rounded-3xl " src={BarkBuddieslogo} alt="" />
       </div>
 
-      <ul className="hidden md:flex ml-[12rem] ">
+      <ul className="hidden md:flex ml-auto  text-lg">
         {links.map(({ id, link }) => (
           <li
             key={id}
@@ -77,7 +79,8 @@ const Navbar = () => {
       {/* User's Profile */}
 
       <div className=" hidden  md:flex bg-transparent">
-        <h1>himlo</h1>
+
+        <h1><FaUserCircle size={35}/></h1>
       </div>
 
       <div

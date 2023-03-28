@@ -4,6 +4,7 @@ import Login from './components/RegisterComponents/Login';
 import Navbar from './components/NavbarComponent/Navbar';
 import SignUp from './components/RegisterComponents/SignUp';
 import Adopt from './components/AdoptComponent/Adopt'
+import DomgiProfile from './components/DomgiProfileComponent/DomgiProfile';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
     <Routes>
     <Route  path="/Login"element={<Login />}></Route>
     <Route  path="/SignUp"element={<SignUp />}></Route>
-    <Route  path="/Adopt"element={<Adopt />}></Route>
+    <Route  path="/Adopt"element={<Adopt  />}></Route>
+    <Route  path="/domgiProfile"element={<DomgiProfile />}></Route>
     
 
     </Routes>
