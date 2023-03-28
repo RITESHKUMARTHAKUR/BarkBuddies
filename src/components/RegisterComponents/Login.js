@@ -15,7 +15,7 @@ function Login() {
 
 
   return (
-    <div className=" min-h-screen bg-gradient-to-br from-gray-500 to-black text-white pt-20 ">
+    <div className=" min-h-screen bg-[#524439] text-white pt-20 ">
       <div className=" flex items-center  w-full flex-col ">
         <div className="  flex items-center justify-center mt-24 lg:my-8">
           <img className=" w-1/3 rounded-3xl sm:w-1/5 lg:w-1/6" src={logoWhite} alt="" />
