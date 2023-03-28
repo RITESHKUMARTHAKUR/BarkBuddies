@@ -3,10 +3,10 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import {FaUserCircle } from "react-icons/fa";
 import doggie1 from '../../images/Adoption/doggie1.png'
-import domgie2 from '../../images/Adoption/domgie2'
-import domgie3 from '../../images/Adoption/domgie3'
-import domgie4 from '../../images/Adoption/domgie4'
-import domgie5 from '../../images/Adoption/domgie5'
+import domgie2 from '../../images/Adoption/domgie2.jpg'
+import domgie3 from '../../images/Adoption/domgie3.jpg'
+import domgie4 from '../../images/Adoption/domgie4.jpg'
+import domgie5 from '../../images/Adoption/domgie5.jpg'
 
 // import BarkBuddieslogo from "../../images/BarkBuddieslogo.png";
 // import Background from "../../images/Adoption/Background.jpg";
