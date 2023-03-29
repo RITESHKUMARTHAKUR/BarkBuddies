@@ -19,6 +19,7 @@ const SignUp = () => {
       await createUserWithEmailAndPassword(auth,email,userName).then(() => {
       addDataToFirestore();
       navigate("/Home")
+      // window.location.reload();
     })
     } catch(err){
       console.error(err);
