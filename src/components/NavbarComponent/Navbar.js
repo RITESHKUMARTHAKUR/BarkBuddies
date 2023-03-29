@@ -82,7 +82,7 @@ const Navbar = () => {
 
       <div className=" hidden  md:flex bg-transparent">
 
-        <h1><FaUserCircle size={35}/></h1>
+        <Link to="/user"><h1><FaUserCircle size={35}/></h1></Link>
       </div>
 
       <div
