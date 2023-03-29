@@ -15,11 +15,11 @@ const Footer = () => {
             <div>
             <div className='flex items-center gap-2 pt-4'>
                         <BsTelephoneFill/>
-                        <p>12345678</p>   
+                        <p>+918349258303</p>   
             </div>
             <div className='flex items-center gap-2 pt-4'>
                         <MdEmail/>
-                        <p>example@mail.com</p>
+                        <p>BarkBuddies@mail.com</p>
                     
             </div>
             </div>
@@ -32,31 +32,31 @@ const Footer = () => {
             <div>
             <p className='text-2xl'>Site Map</p>
             <ol>
-                <li className='flex items-center'>
+                <li className='flex items-center transition-all duration-200 ease hover:ml-2 '>
                     <MdOutlineKeyboardArrowRight/>
                     <Link to="">
                         Home
                     </Link>
                 </li>
-                <li className='flex items-center'>
+                <li className='flex items-center transition-all duration-200 ease hover:ml-2'>
                     <MdOutlineKeyboardArrowRight/>
                     <Link to="">
                         Mate
                     </Link>
                 </li>
-                <li className='flex items-center'>
+                <li className='flex items-center transition-all duration-200 ease hover:ml-2'>
                     <MdOutlineKeyboardArrowRight/>
                     <Link to="">
                         Adopt
                     </Link>
                 </li>
-                <li className='flex items-center'>
+                <li className='flex items-center transition-all duration-200 ease hover:ml-2'>
                     <MdOutlineKeyboardArrowRight/>
                     <Link to="">
                         Store
                     </Link>
                 </li>
-                <li className='flex items-center'>
+                <li className='flex items-center transition-all duration-200 ease hover:ml-2'>
                     <MdOutlineKeyboardArrowRight/>
                     <Link to="">
                         About us
@@ -68,34 +68,31 @@ const Footer = () => {
         <div className='w-1/3 flex  flex-col'>
             <p className='text-2xl'>Site Map</p>
             <ol>
-                <li className='flex items-center'>
+                <li className='flex items-center transition-all duration-200 ease hover:ml-2'>
                     <MdOutlineKeyboardArrowRight/>
                     <Link to="">
                         Ngos Near You
                     </Link>
                 </li>
-                <li className='flex items-center'>
+                <li className='flex items-center transition-all duration-200 ease hover:ml-2'>
                     <MdOutlineKeyboardArrowRight/>
                     <Link to="">
-                        Ngos Near You
+                        Pet Healthcare Near You
                     </Link>
                 </li>
-                <li className='flex items-center'>
+                <li className='flex items-center transition-all duration-200 ease hover:ml-2'>
                     <MdOutlineKeyboardArrowRight/>
                     <Link to="">
                         Checklist for New Adopters
                     </Link>
                 </li>
-                <li>
-                    <Link to="">
-                        Store
-                    </Link>
-                </li>
-                <li>
+                <li className='flex items-center transition-all duration-200 ease hover:ml-2'>
+                    <MdOutlineKeyboardArrowRight/>
                     <Link to="">
                         Adoption FAQ
                     </Link>
                 </li>
+                
             </ol>
         </div>
         
