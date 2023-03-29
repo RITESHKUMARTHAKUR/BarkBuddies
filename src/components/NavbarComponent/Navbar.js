@@ -46,7 +46,7 @@ const Navbar = () => {
 
       {/* Search bar */}
 
-      <div class="flex justify-center ml-auto mt-8">
+      {/* <div class="flex justify-center ml-auto mt-8">
         <div class="mb-3 xl:w-96">
           <div class="relative mb-4 flex w-full flex-wrap items-stretch ">
             <input
@@ -76,7 +76,7 @@ const Navbar = () => {
             </span>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* User's Profile */}
 

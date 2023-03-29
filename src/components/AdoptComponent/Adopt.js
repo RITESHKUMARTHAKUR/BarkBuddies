@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {AiOutlineFilter} from "react-icons/ai"
 import { collection, query,onSnapshot } from "firebase/firestore";
 import {db} from "../database/firebase-config";
-
+import {Link} from "react-router-dom"
 
 const Adopt =  () => {
   const [fetchedData,setFetchData] = useState([]);
@@ -36,9 +36,9 @@ const Adopt =  () => {
     <div className="flex flex-wrap justify-between -m-4">
     {fetchedData.map((task,id) => (
         <div className="lg:w-[32%] md:w-1/2  w-full shadow-md shadow-gray-600 rounded-3xl mb-4  ">
-        <a className= "   lg:h-60  block relative h-48 rounded-t-xl overflow-hidden" >
-          <img alt="doc photo" className="object-cover object-center w-[490px] h-[250px] block" src={task.data.photo}/>
-        </a>
+        <Link to="/DomgiProfile" className= "  hover:scale-105 duration-300  lg:h-60  block relative h-48 rounded-t-xl overflow-hidden" >
+          <img alt="doc photo" className="object-cover object-center w-[490px] h-[300px] block" src={task.data.photo}/>
+        </Link>
         <div className=" bg-[#B9A89B] rounded-b-3xl pb-5">
           <h3 className=" text-black semi-bold  text-lg tracking-widest title-font ml-2 ">{task.data.breed}</h3>
       
