@@ -4,6 +4,7 @@ import image1 from "../../images/Store/image1.jpeg";
 import image2 from "../../images/Store/image2.jpeg";
 import image3 from "../../images/Store/image3.jpeg";
 import image4 from "../../images/Store/image4.jpeg";
+
 // import image5 from '../../images/Store/image5.jpeg'
 
 const Store = () => {
@@ -51,7 +52,7 @@ const Store = () => {
               <a className="   lg:h-60   block relative h-48 rounded-t-xl overflow-hidden flex justify-center">
                 <img
                   alt="ecommerce"
-                  className="object-cover object-center  block"
+                  className="object-cover object-center  block cursor-pointer hover:scale-150 duration-300"
                   src={src}
                 />
               </a>

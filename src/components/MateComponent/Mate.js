@@ -23,6 +23,19 @@ const Mate = () => {
   // }
   
 
+  // const [data,setData] = useState([]);
+  // useEffect(()  => {
+  //     const fun =  async() => {
+  //       const querySnapshot = await getDocs(collection(db, "mate"));
+  //       querySnapshot.forEach((childSnapshot) => {
+  //         data.push(childSnapshot.data());
+  //       });
+  //       console.log( "fetched data",data )
+  //       setData(data);
+  //     }
+  //     console.log("console log data",data)
+  //     fun();
+  //   },[data])
 
   return (
     <div className=" pt-28">
@@ -64,4 +77,4 @@ const Mate = () => {
   );
 }
 
-export default Mate
+export default Mate;

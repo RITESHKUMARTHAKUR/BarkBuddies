@@ -10,6 +10,8 @@ import Adopt from "./components/AdoptComponent/Adopt";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Mate from './components/MateComponent/Mate';
 import Store from './components/StoreComponent/Store';
+import User from './components/UserProfileComponent/User';
+
 
 function App() { 
   
@@ -25,6 +27,7 @@ function App() {
           <Route path="/domgiprofile" element={<DomgiProfile />}></Route>
           <Route path="/mate" element={<Mate />}></Route>
           <Route path="/store" element={<Store />}></Route>
+          <Route path="/user" element={<User />}></Route>
 
         </Routes>
         {window.location.pathname != "/"  ? <Footer /> : null }
