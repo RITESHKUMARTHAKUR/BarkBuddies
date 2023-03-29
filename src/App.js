@@ -16,8 +16,7 @@ function App() {
     return (
     <>
       <BrowserRouter>
-        {window.location.pathname != "/"  ? <Navbar /> : null }
-        
+          {window.location.pathname != "/"  ? <Navbar/> :  null }
         <Routes>
           <Route path="/" element={<SignUp />}></Route>
           <Route path="/Home" element={<Home />}></Route>

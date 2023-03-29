@@ -7,6 +7,7 @@ import pic3 from "./../../images/ngo/3.png"
 import AdoptLogo from "../../images/Dog.png";
 import AboutPhoto from "./../../images/aboutphoto.jpeg"
 import BreedLogo from "../../images/Breeding.png";
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -35,14 +36,14 @@ const Home = () => {
           <p className="font-bold text-3xl">Links section</p>
         </center>
         <div className="flex justify-evenly py-10 ">
-          <div className="bg-[#C6E9EE] w-fit px-12 pt-8 flex rounded-3xl items-center flex-col">
+          <Link to="/adopt" className="bg-[#C6E9EE] w-fit px-12 pt-8 flex rounded-3xl items-center flex-col">
             <img src={AdoptLogo} className="w-32" alt="Adopt logo" />
             <p className="my-4 font-bold">ADOPT</p>
-          </div>
-          <div className="bg-[#F5DFC7] w-fit px-12 pt-8 flex rounded-3xl items-center flex-col">
+          </Link>
+          <Link to="/mate" className="bg-[#F5DFC7] w-fit px-12 pt-8 flex rounded-3xl items-center flex-col">
             <img src={BreedLogo} className="w-32" alt="Adopt logo" />
             <p className="my-4 font-bold">MATE</p>
-          </div>
+          </Link>
         </div>
       </div>
 
