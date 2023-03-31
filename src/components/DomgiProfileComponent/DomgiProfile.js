@@ -146,7 +146,7 @@ const DomgiProfile = () => {
             </a>
             <div className=" bg-[#B9A89B] rounded-b-3xl pb-5">
               <h3 className=" text-black semi-bold  text-lg tracking-widest title-font ml-2 ">
-                German Shepherd
+                Labrador 
               </h3>
 
               <p className="ml-3 text-black ">24 months</p>
@@ -162,7 +162,7 @@ const DomgiProfile = () => {
             </a>
             <div className=" bg-[#B9A89B] rounded-b-3xl pb-5">
               <h3 className=" text-black semi-bold  text-lg tracking-widest title-font ml-2 ">
-                German Shepherd
+                Golden Retriever
               </h3>
 
               <p className="ml-3 text-black ">24 months</p>
