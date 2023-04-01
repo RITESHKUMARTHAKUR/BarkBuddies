@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./components/HomeComponents/Home";
 import Login from "./components/RegisterComponents/Login";
 import Navbar from "./components/NavbarComponent/Navbar";
+import Chat from "./components/ChatComponent/Chat"
 import SignUp from "./components/RegisterComponents/SignUp";
 import Logout from "./logout";
 import Footer from "./components/FooterComponent/Footer";
@@ -19,12 +20,13 @@ function App() {
     return (
     <>
       <BrowserRouter>
-          {window.location.pathname != "/"  ? <Navbar/> :  null }
+          {window.location.pathname != "/" && window.location.pathname != "/Chat" ? <Navbar/> :  null }
         <Routes>
           <Route path="/" element={<SignUp />}></Route>
           <Route path="/Home" element={<Home />}></Route>
           {<Route path="/login" element={<Login/>}></Route> }
           <Route path="/Adopt" element={<Adopt />}></Route>
+          <Route path="/Chat" element={<Chat />}></Route>
           <Route path="/domgiprofile" element={<DomgiProfile />}></Route>
           <Route path="/mate" element={<Mate />}></Route>
           <Route path="/store" element={<Store />}></Route>
@@ -32,7 +34,7 @@ function App() {
           <Route path="/upload" element={<Upload />}></Route>
 
         </Routes>
-        {window.location.pathname != "/"  ? <Footer /> : null }
+        {window.location.pathname != "/"  && window.location.pathname != "/Chat" ? <Footer /> : null }
       </BrowserRouter>
     </>
   );

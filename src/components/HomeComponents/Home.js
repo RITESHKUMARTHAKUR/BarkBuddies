@@ -47,7 +47,8 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="h-screen flex items-center justify-center bg-[#FFB267]">
+      <div className="h-screen flex items-center flex-col justify-center bg-[#FFB267]">
+        <center className='text-3xl font-bold pb-[3em]'>About US</center>
         <div className="flex bg-white h-[20em] w-[60%] items-center">
           <img
             src={AboutPhoto}
@@ -101,7 +102,7 @@ const Home = () => {
             <button className='bg-[#FFB267] py-1 px-[0.6em]'>Learn More</button>
           </div>
           <div className="bg-white flex flex-col justify-center items-center p-3 gap-6 bg-opacity-80 w-[20em] h-[16em]">
-            <p className='text-[26px]'>Check list for new Adopters</p>
+            <p className='text-[26px]'>Pet Healthcare Near You</p>
             <p className='text-xs'> 
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
               vero earum asperiores tempora sint. Recusandae velit illo culpa
@@ -111,7 +112,7 @@ const Home = () => {
             <button className='bg-[#FFB267] py-1 px-[0.6em]'>Learn More</button>
           </div>
           <div className="bg-white flex flex-col justify-center items-center p-3 gap-6 bg-opacity-80 w-[20em] h-[16em]">
-            <p className='text-[26px]'>Check list for new Adopters</p>
+            <p className='text-[26px]'>NGO's Near You</p>
             <p className='text-xs'> 
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil
               vero earum asperiores tempora sint. Recusandae velit illo culpa

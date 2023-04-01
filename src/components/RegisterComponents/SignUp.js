@@ -6,7 +6,6 @@ import { createUserWithEmailAndPassword ,signInWithPopup} from "firebase/auth";
 import { auth,googleProvider,db} from "../database/firebase-config";
 import { collection, addDoc,setDoc,doc } from "firebase/firestore"; 
 
-
 const SignUp = () => {
   const navigate = useNavigate();
   const [email, setemail] = useState("");
@@ -19,6 +18,7 @@ const SignUp = () => {
       await createUserWithEmailAndPassword(auth,email,userName).then(() => {
       addDataToFirestore();
       navigate("/Home")
+      // window.location.reload();
     })
     } catch(err){
       console.error(err);
@@ -39,7 +39,7 @@ const SignUp = () => {
 
 
   const addDataToFirestore = async () => {
-    await setDoc(doc(db, "profile", "x2c3v4"), {
+    await setDoc(doc(db, "profile", "JBgCK6tFLb1vDJu63ml9"), {
       name:  userName,
       email: email
     } );

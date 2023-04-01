@@ -9,6 +9,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../database/firebase-config";
 import { Link } from "react-router-dom";
 import DomgiProfile from "../DomgiProfileComponent/DomgiProfile";
+import rit from "../../images/rit.jpg"
 
 const User = () => {
   return (
@@ -17,27 +18,27 @@ const User = () => {
 
       <div>
         <div>
-          <div className=" flex bg-[#D9D9D9] p-20 rounded-full ">
-            <img src="" alt="photo" />
+          <div className=" flex justify-center h-screen items-center  ">
+            <img  className=" h-[8em] w-[8em]  object-cover rounded-[50%]" src={rit} alt="photo" />
           </div>
           <div className=" flex m-5 text-lg ">
             <p>Name : </p>
-            <p>Harsh Khatri</p>
+            <p>&nbsp; Harsh Khatri</p>
           </div>
           <div className=" flex m-5 text-lg ">
             <p>Email : </p>
-            <p>harsh@gmail.como</p>
+            <p>&nbsp; harsh@gmail.como</p>
           </div>
           <div className=" flex m-5 text-lg ">
             <p>Phone No. : </p>
-            <p>1234567890</p>
+            <p>&nbsp; 8349158303</p>
           </div>
         </div>
       </div>
 
       {/* lower */}
 
-      <div className="container px-5 py-8 flex justify-evenly">
+      {/* <div className="container px-5 py-8 flex justify-evenly">
         <div className="flex flex-wrap  -m-4 ">
           <div className=" flex  flex-col">
             <h1 className=" mb-5 font-seibold text-lg">More Dogs in your area:</h1>
@@ -103,7 +104,7 @@ const User = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

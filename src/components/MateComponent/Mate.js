@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { collection, query, onSnapshot } from "firebase/firestore";
 import {db } from "../database/firebase-config";
 import { MdDelete } from "react-icons/md";
-
+import {Link} from "react-router-dom"
 const Mate = () => {
   
   const [fetchedData,setFetchData] = useState([]);
@@ -50,14 +50,13 @@ const Mate = () => {
       <div className=" flex flex-col mt-6  justify-center items-center">
         {fetchedData.map((task,id) => (
           <div key={task.id} id={task.id} className="lg:w-[50%] md:w-1/2  w-full hover:shadow-md hover:shadow-gray-600  duration-100 cursor-pointer mb-4   flex">
-            <a className="   lg:h-60   block relative h-48  overflow-hidden w-[45%]">
+            <Link  to="/DomgiProfile" className="   lg:h-60   block relative h-48  overflow-hidden w-[45%]">
               <img
                 alt="ecommerce"
-                className="object-cover object-center w-[490px] h-[250px] block "
+                className="object-cover object-center w-[490px] h-[300px] block "
                 src={task.data.photo}
               />
-            </a>
-
+            </Link>
             <div className=" bg-[#B9A89B] pb-5 px-20 w-[55%] flex flex-col ">
               <h3 className=" text-black  font-bold text-lg tracking-widest title-font ml-2  mb-2 mt-3">
                 {task.data.name}
