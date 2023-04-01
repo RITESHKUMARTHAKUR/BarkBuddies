@@ -12,7 +12,7 @@ import DomgiProfile from "../DomgiProfileComponent/DomgiProfile";
 
 const User = () => {
   return (
-    <div className=" pt-[6rem] bg-[#f5f5f5] flex  h-screen items-center flex-col ">
+    <div className=" pt-[6rem] bg-[#f5f5f5] flex  items-center flex-col ">
       {/* upper */}
 
       <div>
@@ -40,9 +40,9 @@ const User = () => {
       <div className="container px-5 py-8 flex justify-evenly">
         <div className="flex flex-wrap  -m-4 ">
           <div className=" flex  flex-col">
-            <h1 className=" mb-5">More Dogs in your area</h1>
+            <h1 className=" mb-5 font-seibold text-lg">More Dogs in your area:</h1>
 
-            <div className=" flex ">
+            <div className=" flex  justify-between">
               <div className="lg:w-[32%] md:w-1/2  w-full shadow-md shadow-gray-600 rounded-3xl mb-4  ">
                 <Link
                   to="/DomgiProfile"

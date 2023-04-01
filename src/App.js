@@ -11,6 +11,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Mate from './components/MateComponent/Mate';
 import Store from './components/StoreComponent/Store';
 import User from './components/UserProfileComponent/User';
+import Upload from './components/UploadComponent/Upload';
 
 
 function App() { 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/mate" element={<Mate />}></Route>
           <Route path="/store" element={<Store />}></Route>
           <Route path="/user" element={<User />}></Route>
+          <Route path="/upload" element={<Upload />}></Route>
 
         </Routes>
         {window.location.pathname != "/"  ? <Footer /> : null }
