@@ -49,7 +49,7 @@ const Store = () => {
               key={id}
               className="lg:w-[32%] md:w-1/2  w-full shadow-md shadow-gray-600 rounded-3xl mb-4   flex justify-center   flex-col "
             >
-              <a className="   lg:h-60   block relative h-48 rounded-t-xl overflow-hidden flex justify-center">
+              <a className="   lg:h-60 relative h-48 rounded-t-xl overflow-hidden flex justify-center">
                 <img
                   alt="ecommerce"
                   className="object-cover object-center  block cursor-pointer hover:scale-150 duration-300"

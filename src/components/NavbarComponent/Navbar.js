@@ -21,12 +21,16 @@ const Navbar = () => {
       id: 5,
       link: "store",
     },
+    {
+      id: 6,
+      link: "about",
+    },
   ];
 
   return (
-    <div className="flex justify-between items-center w-full h-20 z-10 bg-[#FFB267]  px-4 fixed text-black ">
+    <div className="flex justify-between items-center w-full z-10 bg-[#FFB267]  px-4 fixed text-black ">
       <div className= "  w-32   md:w-[18rem] ml-2 ">
-      <Link to="/" smooth duration={500}>
+      <Link to="/home" smooth duration={500}>
         <img className="rounded-3xl " src={BarkBuddieslogo} alt="" />
   </Link>
       </div>

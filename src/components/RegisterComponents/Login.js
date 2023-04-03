@@ -20,7 +20,7 @@ function Login() {
     try{
     await signInWithPopup(auth , googleProvider).then((user) =>{
       addDataToFirestore(user);
-      navigate("/Home")
+      navigate("/home")
 
     })
     } catch(err){

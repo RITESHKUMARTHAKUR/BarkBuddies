@@ -20,7 +20,7 @@ const SignUp = () => {
       await createUserWithEmailAndPassword(auth,email,password).then((user) => {
         // console.log(user);
         addDataToFirestore(user);
-      navigate("/Home")
+      navigate("/home")
     })
     } catch(err){
       setErr(true);
@@ -34,7 +34,7 @@ const SignUp = () => {
     try{
     await signInWithPopup(auth , googleProvider).then((user) =>{
       addDataToFirestore(user);
-      navigate("/Home")
+      navigate("/home")
 
     })
     } catch(err){

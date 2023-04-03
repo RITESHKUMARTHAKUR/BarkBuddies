@@ -12,6 +12,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Mate from './components/MateComponent/Mate';
 import Store from './components/StoreComponent/Store';
 import User from './components/UserProfileComponent/User';
+import About from './components/AboutUsComponent/About';
 
 
 function App() { 
@@ -19,11 +20,12 @@ function App() {
     return (
     <>
       <BrowserRouter>
-          {window.location.pathname != "/" && window.location.pathname != "/Chat" ? <Navbar/> :  null }
+          {window.location.pathname != "/" && window.location.pathname != "/Chat" && window.location.pathname != "/chat" && window.location.pathname != "/login" && window.location.pathname != "/Login"  ? <Navbar/> :  null }
         <Routes>
           <Route path="/" element={<SignUp />}></Route>
-          <Route path="/Home" element={<Home />}></Route>
-          {<Route path="/login" element={<Login/>}></Route> }
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/login" element={<Login/>}></Route> 
+          <Route path="/about" element={<About/>}></Route> 
           <Route path="/Adopt" element={<Adopt />}></Route>
           <Route path="/Chat" element={<Chat />}></Route>
           <Route path="/domgiprofile" element={<DomgiProfile />}></Route>
@@ -32,7 +34,7 @@ function App() {
           <Route path="/user" element={<User />}></Route>
 
         </Routes>
-        {window.location.pathname != "/"  && window.location.pathname != "/Chat" ? <Footer /> : null }
+        {window.location.pathname != "/"  && window.location.pathname != "/Chat" && window.location.pathname != "/chat" && window.location.pathname != "/login" && window.location.pathname != "/Login"  ? <Footer /> : null }
       </BrowserRouter>
     </>
   );

@@ -7,7 +7,7 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <div className='h-[50vh] text-white items-center flex bg-[#524439]' >
+    <div className='h-[40vh] text-white items-center flex bg-[#524439]' >
         <div className='w-1/3 flex items-center flex-col'>
             <span className=' bg-[#FFB267]  py-12  rounded-[50%]'>
                 <img src={BrandLogo} alt="" className='h-6' />
