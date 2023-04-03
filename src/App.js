@@ -13,6 +13,7 @@ import Mate from './components/MateComponent/Mate';
 import Store from './components/StoreComponent/Store';
 import User from './components/UserProfileComponent/User';
 import About from './components/AboutUsComponent/About';
+import Upload from './components/UploadComponent/Upload';
 
 
 function App() { 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/mate" element={<Mate />}></Route>
           <Route path="/store" element={<Store />}></Route>
           <Route path="/user" element={<User />}></Route>
+          <Route path="/upload" element={<Upload />}></Route>
 
         </Routes>
         {window.location.pathname != "/"  && window.location.pathname != "/Chat" && window.location.pathname != "/chat" && window.location.pathname != "/login" && window.location.pathname != "/Login"  ? <Footer /> : null }

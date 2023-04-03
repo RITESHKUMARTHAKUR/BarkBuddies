@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {AiOutlineFilter} from "react-icons/ai"
+import {BiUpload} from "react-icons/bi"
 import { collection, query,onSnapshot } from "firebase/firestore";
 import {db} from "../database/firebase-config";
 import {Link} from "react-router-dom"
@@ -28,6 +29,10 @@ const Adopt =  () => {
       <div className=' flex justify-between pl-3 pr-3 '>
         <button className='bg-[#D9D9D9] p-1 px-2'>Filter <AiOutlineFilter  className=' inline-block' / ></button>
         
+        <button className="bg-[#D9D9D9] p-1 px-2 flex justify-center items-center">
+          <Link to="/upload"> Upload <BiUpload className=" inline-block float-right ml-2 " /></Link>
+         
+        </button>
       </div>
 
 
