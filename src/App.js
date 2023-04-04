@@ -8,23 +8,30 @@ import SignUp from "./components/RegisterComponents/SignUp";
 import Logout from "./logout";
 import Footer from "./components/FooterComponent/Footer";
 import Adopt from "./components/AdoptComponent/Adopt";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Mate from './components/MateComponent/Mate';
 import Store from './components/StoreComponent/Store';
 import User from './components/UserProfileComponent/User';
 import About from './components/AboutUsComponent/About';
 import Upload from './components/UploadComponent/Upload';
+import { useContext } from 'react';
+import { AuthContext } from './Context/AuthContext';
 
 
 function App() { 
-  
+  const {currentUser} = useContext(AuthContext)
+  const ProtectedRoute = ({children}) => {
+    if(!currentUser) {
+      return <Navigate to="/" />
+    }
+    return children
+  }
     return (
-    <>
       <BrowserRouter>
           {window.location.pathname != "/" && window.location.pathname != "/Chat" && window.location.pathname != "/chat" && window.location.pathname != "/login" && window.location.pathname != "/Login"  ? <Navbar/> :  null }
         <Routes>
           <Route path="/" element={<SignUp />}></Route>
-          <Route path="/home" element={<Home />}></Route>
+          <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute> }></Route>
           <Route path="/login" element={<Login/>}></Route> 
           <Route path="/about" element={<About/>}></Route> 
           <Route path="/Adopt" element={<Adopt />}></Route>
@@ -32,13 +39,12 @@ function App() {
           <Route path="/domgiprofile" element={<DomgiProfile />}></Route>
           <Route path="/mate" element={<Mate />}></Route>
           <Route path="/store" element={<Store />}></Route>
-          <Route path="/user" element={<User />}></Route>
+          <Route path="/user" element={<ProtectedRoute><User /></ProtectedRoute> }></Route>
           <Route path="/upload" element={<Upload />}></Route>
 
         </Routes>
         {window.location.pathname != "/"  && window.location.pathname != "/Chat" && window.location.pathname != "/chat" && window.location.pathname != "/login" && window.location.pathname != "/Login"  ? <Footer /> : null }
       </BrowserRouter>
-    </>
   );
 }
 

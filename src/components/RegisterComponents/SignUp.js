@@ -66,7 +66,8 @@ const SignUp = () => {
           <div className=" flex flex-col">
           <label className=" font-semibold ">
               USERNAME:
-              <input
+              <input 
+                required
                 className=" border-gray-800 border-solid w-full border p-3 px-10 text-black "
                 type="text"
                 onChange={(event) => setUserName(event.target.value)}
@@ -76,6 +77,7 @@ const SignUp = () => {
           <label className=" font-semibold ">
               EMAIL:
               <input
+                required
                 className=" border-gray-800 border-solid w-full border p-3 px-10 text-black "
                 type="text"
                 onChange={(event) => setEmail(event.target.value)}
@@ -85,6 +87,7 @@ const SignUp = () => {
             <label className=" font-semibold ">
               PASSWORD:
               <input
+                required
                 className=" border-gray-800 border-solid w-full border p-3 px-10 text-black "
                 type="text"
                 onChange={(event) => setPassword(event.target.value)}
