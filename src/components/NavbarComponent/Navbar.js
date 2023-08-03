@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { Children, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import {FaUserCircle } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
 
 // import logoWhite from "../images/logoWhite.png";
 import BarkBuddieslogo from "../../images/BarkBuddieslogo.png";
+import Footer from "../FooterComponent/Footer";
 
-const Navbar = () => {
+const Navbar = ({children}) => {
   const [Nav, setNav] = useState(false);
+  const location = useLocation();
+
+  const isSignupPage = location.pathname === '/';
   const links = [
     {
       id: 3,
@@ -27,12 +31,12 @@ const Navbar = () => {
     },
   ];
 
-  return (
+  const renderNavBar = !isSignupPage ? (
     <div className="flex justify-between items-center w-full z-10 bg-[#FFB267] shadow-lg  px-4 fixed text-black ">
-      <div className= "  w-32   md:w-[18rem] ml-2 ">
-      <Link to="/home" smooth duration={500}>
-        <img className="rounded-3xl " src={BarkBuddieslogo} alt="" />
-  </Link>
+      <div className="  w-32   md:w-[18rem] ml-2 ">
+        <Link to="/home" smooth duration={500}>
+          <img className="rounded-3xl " src={BarkBuddieslogo} alt="" />
+        </Link>
       </div>
 
       <ul className="hidden md:flex ml-auto  text-lg">
@@ -85,8 +89,11 @@ const Navbar = () => {
       {/* User's Profile */}
 
       <div className=" hidden  md:flex bg-transparent">
-
-        <Link to="/user"><h1><FaUserCircle size={35}/></h1></Link>
+        <Link to="/user">
+          <h1>
+            <FaUserCircle size={35} />
+          </h1>
+        </Link>
       </div>
 
       <div
@@ -116,6 +123,20 @@ const Navbar = () => {
           {/* <li className=' text-4xl capitalize py-6 cursor-pointer'>home</li> */}
         </ul>
       )}
+    </div>
+  ) : null;
+
+  const renderFooter = !isSignupPage ? (
+    <Footer/>
+  ) : null;
+  
+
+  return (
+    <div>
+      {renderNavBar}
+      {children}
+      {renderFooter}
+
     </div>
   );
 };

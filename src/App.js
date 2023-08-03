@@ -8,7 +8,7 @@ import SignUp from "./components/RegisterComponents/SignUp";
 import Logout from "./logout";
 import Footer from "./components/FooterComponent/Footer";
 import Adopt from "./components/AdoptComponent/Adopt";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Mate from './components/MateComponent/Mate';
 import Store from './components/StoreComponent/Store';
 import User from './components/UserProfileComponent/User';
@@ -20,6 +20,7 @@ import { AuthContext } from './Context/AuthContext';
 
 function App() { 
   const {currentUser} = useContext(AuthContext)
+
   const ProtectedRoute = ({children}) => {
     if(!currentUser) {
       return <Navigate to="/" />
@@ -28,7 +29,9 @@ function App() {
   }
     return (
       <BrowserRouter>
-          {window.location.pathname != "/" && window.location.pathname != "/Chat" && window.location.pathname != "/chat" && window.location.pathname != "/login" && window.location.pathname != "/Login"  ? <Navbar/> :  null }
+      <Navbar>
+
+      
         <Routes>
           <Route path="/" element={<SignUp />}></Route>
           <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute> }></Route>
@@ -43,7 +46,7 @@ function App() {
           <Route path="/upload" element={<Upload />}></Route>
 
         </Routes>
-        {window.location.pathname != "/"  && window.location.pathname != "/Chat" && window.location.pathname != "/chat" && window.location.pathname != "/login" && window.location.pathname != "/Login"  ? <Footer /> : null }
+        </Navbar>
       </BrowserRouter>
   );
 }
