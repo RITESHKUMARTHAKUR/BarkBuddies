@@ -1,23 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { BiLogOut } from "react-icons/bi";
-import { AiOutlineFilter } from "react-icons/ai";
-import doggie1 from "../../images/Adoption/doggie1.png";
-import domgie2 from "../../images/Adoption/domgie2.jpg";
-import domgie3 from "../../images/Adoption/domgie3.jpg";
-import domgie4 from "../../images/Adoption/domgie4.jpg";
-import domgie5 from "../../images/Adoption/domgie5.jpg";
 import { auth, db } from "../database/firebase-config";
-import { Link } from "react-router-dom";
-import DomgiProfile from "../DomgiProfileComponent/DomgiProfile";
 import rit from "../../images/rit.jpg";
+import altImg from "./../../images/profile-user.svg"
 import { AuthContext } from "../../Context/AuthContext";
 import { signOut } from "firebase/auth";
 
 const User = () => {
   const {currentUser} = useContext(AuthContext);
-
   const [docData, setDocData] = useState(null);
+
   useEffect(() => {
     async function fetchDocData () {
       const docRef = doc(db, "profiles", currentUser.uid);
@@ -25,6 +18,7 @@ const User = () => {
 
       if (docSnap.exists()) {
         setDocData(docSnap.data());
+        
     
       } else {
         console.log("No such document!");
@@ -32,7 +26,7 @@ const User = () => {
     }
 
     fetchDocData();
-  }, [currentUser.uid]);
+  }, [currentUser]);
   
   return (
     <div className=" pt-[6rem] flex  items-center flex-col ">
@@ -46,8 +40,8 @@ const User = () => {
         <div className=" flex justify-center  items-center  ">
           <img
             className=" h-[8em] w-[8em]  object-cover rounded-[50%]"
-            src={rit}
-            alt="photo"
+            src= {docData && docData.photoURL}
+            alt="profile image"
           />
         </div>
         <div className=" flex m-5 text-lg ">

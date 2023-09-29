@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider, db } from "../database/firebase-config";
-import { setDoc, doc, Timestamp } from "firebase/firestore";
+import { setDoc,getDoc, doc, Timestamp } from "firebase/firestore";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -12,21 +12,31 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
+  const [phone, setPhone] = useState();
 
-  // -------signUp with Email and password----- //
+  
   const register = async () => {
+
     try {
       await createUserWithEmailAndPassword(auth, email, password).then(
-        (user) => {
-          // console.log(user);
-          addDataToFirestore(user);
-          navigate("/home");
+        async (userDetail) => {
+
+          await setDoc(doc(db, "profiles", userDetail.user.uid), {
+            name: userName ? userName : userDetail.user.displayName,
+            email: email ? email : null,
+            photoURL: userDetail.user.photoURL? userDetail.user.photoURL : null,
+            phone: phone ? phone : null ,
+            created: Timestamp.now(),
+          }).then(
+            navigate("/home")
+          );
         }
       );
     } catch (err) {
       setErr(true);
       console.error(err);
     }
+    
   };
 
   // ----- signIn with google ----- //
@@ -45,11 +55,20 @@ const SignUp = () => {
   // ----- Add data tp forestore function ------//
   const addDataToFirestore = async (userDetails) => {
     // console.log("Created user:", userDetails.user.uid );
-    await setDoc(doc(db, "profiles", userDetails.user.uid), {
-      name: userName ? userName : userDetails.user.displayName,
-      email: email ? email : userDetails.user.email,
-      created: Timestamp.now(),
-    });
+      const docRef = doc(db, "profiles", userDetails.user.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+      
+      } else {
+        await setDoc(doc(db, "profiles", userDetails.user.uid), {
+          name: userName ? userName : userDetails.user.displayName,
+          email: email ? email : userDetails.user.email,
+          photoURL: userDetails.user.photoURL? userDetails.user.photoURL : null,
+          phone: phone ? phone : null ,
+          created: Timestamp.now(),
+        });
+      }
   };
 
   return (
@@ -96,6 +115,19 @@ const SignUp = () => {
               </label>
 
               <br />
+              <label className=" font-semibold ">
+                <input
+                  required
+                  aria-autocomplete="none"
+                  autoComplete="none"
+                  className=" border-white-800 bg-transparent border-solid border-b-4 outline-none w-full h-8 "
+                  type="number"
+                  placeholder="Phone number"
+                  onChange={(event) => setPhone(event.target.value)}
+                />
+              </label>
+
+              <br />
               <button
                 onClick={register}
                 type="submit"
@@ -105,13 +137,13 @@ const SignUp = () => {
               </button>
             </div>
             {err ? <p className="text-red-600">*something went wrong</p> : null}
-            <div className=" mt-8 flex items-center justify-center">
+            {/* <div className=" mt-8 flex items-center justify-center">
               Already have an account?{" "}
               <button className=" text-green-500 hover:text-green-800">
                 {" "}
                 <Link to="/login"> &nbsp; log in</Link>{" "}
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="w-1/2">
             <div className="  flex items-center justify-center mt-24 lg:my-8">

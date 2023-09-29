@@ -1,0 +1,85 @@
+.modalCont {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 10000;
+  -webkit-animation: appear 0.3s linear;
+          animation: appear 0.3s linear;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+.modalCont .modalContent .modalBody {
+  width: 60vw;
+  margin: 20vh auto 0;
+  padding: 2em;
+  border-radius: 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.modalCont .modalContent .modalBody img {
+  height: 100px;
+  margin-bottom: 3em;
+}
+
+.modalCont .modalContent .modalBody p {
+  word-wrap: break-word;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 2em;
+}
+
+.modalCont .modalContent .modalBody div button {
+  padding: 10px 45px;
+  background-color: #f8c3c0;
+  color: #e62b1e;
+  font-weight: 600;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.modalCont.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .modalCont .modalContent .modalBody {
+    width: 90vw;
+    padding: 2em 1em;
+  }
+  .modalCont .modalContent .modalBody img {
+    height: 80px;
+    margin-bottom: 2em;
+  }
+  .modalCont .modalContent .modalBody p {
+    font-size: 1.2em;
+  }
+}
+/*# sourceMappingURL=AlertModalComponent.css.map */

@@ -1,0 +1,83 @@
+.modalCont {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 10000;
+  animation: appear 0.3s linear;
+  transition: 0.3s all ease;
+
+  .modalContent {
+    .modalBody {
+      width: 60vw;
+      margin: 20vh auto 0;
+      padding: 2em;
+      border-radius: 20px;
+      background-color: #fff;
+      text-align: center;
+
+      img {
+        height: 100px;
+        margin-bottom: 3em;
+      }
+
+      p {
+        word-wrap: break-word;
+        font-size: 1.5em;
+        font-weight: 600;
+        margin-bottom: 2em;
+      }
+
+      div {
+        button {
+          padding: 10px 45px;
+          background-color: #f8c3c0;
+          color: #e62b1e;
+          font-weight: 600;
+          border-radius: 5px;
+          border: none;
+          outline: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &.show {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .modalCont {
+    .modalContent {
+      .modalBody {
+        width: 90vw;
+        padding: 2em 1em;
+
+        img {
+          height: 80px;
+          margin-bottom: 2em;
+        }
+
+        p {
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+}

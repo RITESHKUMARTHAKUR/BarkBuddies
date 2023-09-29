@@ -45,9 +45,9 @@ const Adopt =  () => {
           <img alt="doc photo" className="object-cover object-center w-[490px] h-[300px] block" src={task.data.photo}/>
         </Link>
         <div className=" bg-[#B9A89B] rounded-b-3xl pb-5">
-          <h3 className=" text-black semi-bold  text-lg tracking-widest title-font ml-2 ">{task.data.breed}</h3>
+          <h3 className=" text-black semi-bold  text-lg tracking-widest title-font ml-2 ">{task.data.name}</h3>
       
-          <p className="ml-3 text-black ">{task.data.age} Years</p>
+          {/* <p className="ml-3 text-black ">{task.data.age} Years</p> */}
         </div>
       </div>
     ))}
@@ -57,11 +57,10 @@ const Adopt =  () => {
 
     
       
+      </div>
     </div>
-  </div>
-</section>
-    
-  )
+  </section> 
+  );
 }
 
 export default Adopt
