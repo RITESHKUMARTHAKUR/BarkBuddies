@@ -32,8 +32,8 @@ const Navbar = ({children}) => {
   ];
 
   const renderNavBar = !isSignupPage ? (
-    <div className="flex justify-between items-center w-full z-10 bg-[#FFB267] shadow-lg  px-4 fixed text-black ">
-      <div className="  w-32   md:w-[18rem] ml-2 ">
+    <div className="flex justify-between items-center w-full z-10 bg-[#FFB267] shadow-lg  md:px-4 fixed text-black h-[3rem]  md:h-[3.5rem] ">
+      <div className="  w-32   md:w-[18rem] ml-[1rem] ">
         <Link to="/home" smooth duration={500}>
           <img className="rounded-3xl " src={BarkBuddieslogo} alt="" />
         </Link>

@@ -18,7 +18,7 @@ const Home = () => {
         alt="Doggie banner"
         className="relative object-cover h-screen w-screen"
       />
-      <span className="absolute text-white  top-24 left-[20%] text-3xl ">
+      <span className="absolute text-white  top-24 left-[20%] text-[5.875rem]  leading-[6.25rem]  pt-[19rem] opacity-[0.7] text-stroke-2 text-black">
         Get Love and Loyalty,
         <br /> in the Purest form{" "}
       </span>
