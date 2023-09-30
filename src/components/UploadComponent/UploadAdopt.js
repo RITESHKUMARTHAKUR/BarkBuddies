@@ -1,17 +1,39 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AlertModal from "../AlertModalComponent/AlertModalComponent";
 import { db,storage } from "../database/firebase-config";
 import {collection, addDoc } from "firebase/firestore"
 import {getDownloadURL, ref,uploadBytes } from "firebase/storage"
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
+
 
 const Upload = () => {
-    const [file, setFile] = useState(null);
-    const [Name,setName] = useState("");
-    const [breed, setBreed] = useState("");
-    const [age,setAge] = useState(0);
-    const [gender,setGender] = useState("")
-    const [modal, showModal] = useState("");
-    const types = ["image/jpeg", "image/png"];
+  const { currentUser , currentUserData } = useContext(AuthContext)
+  const navigate = useNavigate();
+  const [Name,setName] = useState("");
+  const [breed, setBreed] = useState("");
+  const [year,setYear] = useState(0);
+  const [months,setMonth] = useState(0);
+  const [gender,setGender] = useState("Male")
+  const [file, setFile] = useState(null);
+  const [description, setDescription] = useState("");
+  const [nature, setNature] = useState("");
+  const [city, setCity] = useState("");
+  const [pinCode, setPinCode] = useState("");
+  const [dogState, setDogState] = useState("");
+  const [landmark, setLandMark] = useState("");
+  const [address, setAddress] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
+
+  const [modal, showModal] = useState("");
+  const types = ["image/jpeg", "image/png"];
+  
+  console.log("current user data: " + currentUserData.phone)
+
+  const handleCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+    // console.log(isChecked);
+  };
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -22,11 +44,24 @@ const Upload = () => {
         getDownloadURL(imageRef).then( async (url) => {
           await addDoc(collection(db, "Adoption"), {
             name: Name,
-            breed:breed,
-            age:age,
-            photo: url
+            breed,
+            year,
+            months,
+            gender,
+            photo: url,
+            description,
+            nature,
+            city,
+            dogState,
+            landmark,
+            address,
+            pinCode,
+            userID : currentUser.uid,
+            userName: currentUserData.name,
+            userPhoto : currentUser.photoURL
+
           }).then(() => {
-            alert("Data uploaded")
+            navigate("/adopt")
           })
         })
       }); 
@@ -84,15 +119,27 @@ const Upload = () => {
                     >
                       Age:
                     </label>
+                    <div className="flex gap-2">
                     <input
                       type="text"
-                      name="age"
-                      id="age"
+                      name="year"
+                      id="year"
                       class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-blue-500 :focus:border-blue-500"
-                      placeholder="Dog's age"
+                      placeholder="Year"
                       required=""
-                      onChange={(e) => {setAge(e.target.value)}}
+                      onChange={(e) => {setYear(e.target.value)}}
                     />
+                    <input
+                      type="text"
+                      name="Month"
+                      id="month"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-blue-500 :focus:border-blue-500"
+                      placeholder="month"
+                      required=""
+                      onChange={(e) => {setMonth(e.target.value)}}
+                    />
+                    </div>
+                    
                   </div>
                   <div className="w-full">
                     <label
@@ -144,6 +191,7 @@ const Upload = () => {
                     className="pl-2.5"
                     name="comment"
                     placeholder="Enter text here"
+                    onChange={(e) => {setDescription(e.target.value)}}
                     form="usrform"
                   ></textarea>
                 </div>
@@ -164,6 +212,7 @@ const Upload = () => {
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-blue-500 :focus:border-blue-500"
                     placeholder="Dog's nature"
                     required=""
+                    onChange={(e) => {setNature(e.target.value)}}
                   />
                 </div>
                 <div>
@@ -180,6 +229,7 @@ const Upload = () => {
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-blue-500 :focus:border-blue-500"
                     placeholder=""
                     required=""
+                    onChange={(e) => {setCity(e.target.value)}}
                   />
                 </div>
                 <div>
@@ -196,6 +246,7 @@ const Upload = () => {
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-blue-500 :focus:border-blue-500"
                     placeholder=""
                     required=""
+                    onChange={(e) => {setDogState(e.target.value)}}
                   />
                 </div>
                 <div>
@@ -212,6 +263,7 @@ const Upload = () => {
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-blue-500 :focus:border-blue-500"
                     placeholder=""
                     required=""
+                    onChange={(e) => {setLandMark(e.target.value)}}
                   />
                 </div>
                 <div>
@@ -228,6 +280,24 @@ const Upload = () => {
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-blue-500 :focus:border-blue-500"
                     placeholder=""
                     required=""
+                    onChange={(e) => {setAddress(e.target.value)}}
+                  />
+                </div>
+                <div>
+                  <label
+                    for="pincode"
+                    class="block mb-2 text-sm font-medium text-gray-900 :text-white"
+                  >
+                    Pincode:
+                  </label>
+                  <input
+                    type="text"
+                    name="pincode"
+                    id="pincode"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-blue-500 :focus:border-blue-500"
+                    placeholder=""
+                    required=""
+                    onChange={(e) => {setPinCode(e.target.value)}}
                   />
                 </div>
               </div>
@@ -238,6 +308,8 @@ const Upload = () => {
                     id="terms"
                     aria-describedby="terms"
                     type="checkbox"
+                    checked={isChecked}
+                    onChange={handleCheckboxChange}
                     class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 :bg-gray-700 :border-gray-600 :focus:ring-primary-600 :ring-offset-gray-800"
                     required=""
                   />
@@ -245,23 +317,23 @@ const Upload = () => {
                 <div class="ml-3  text-sm">
                   <label
                     for="terms"
-                    class="font-light text-gray-500 :text-gray-300"
+                    class="font-light"
                   >
                     I accept the{" "}
                     <a
-                      class="font-medium text-primary-600 hover:underline :text-primary-500"
+                      class="font-medium underline text-primary-600 hover:underline :text-primary-500"
                       href="#"
                     >
-                      Terms and Conditions
+                      Terms and Conditions.
                     </a>
                   </label>
                 </div>
               </div>
               <button 
-
+              
               onClick={handleSubmit}
                 type="submit"
-                class="w-full  bg-white  focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center :bg-primary-600 hover:bg-gray-200 duration-150 :focus:ring-primary-800"
+                className={`w-full ${isChecked? "opacity-100  " : "opacity-50 pointer-events-none"} bg-white cursor-pointer  focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center :bg-primary-600 hover:bg-gray-200 duration-150 :focus:ring-primary-800`}
               >
                 Upload
               </button> 

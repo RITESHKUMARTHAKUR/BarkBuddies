@@ -1,4 +1,4 @@
-import React, { Children, useState } from "react";
+import React, { Children, useContext, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
@@ -6,9 +6,11 @@ import { FaUserCircle } from "react-icons/fa";
 // import logoWhite from "../images/logoWhite.png";
 import BarkBuddieslogo from "../../images/BarkBuddieslogo.png";
 import Footer from "../FooterComponent/Footer";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Navbar = ({children}) => {
   const [Nav, setNav] = useState(false);
+  const {currentUserData , currentUser} = useContext(AuthContext)
   const location = useLocation();
 
   const isSignupPage = location.pathname === '/';
@@ -29,10 +31,14 @@ const Navbar = ({children}) => {
       id: 6,
       link: "about",
     },
+    {
+      id: 7,
+      link: "chat",
+    },
   ];
 
   const renderNavBar = !isSignupPage ? (
-    <div className="flex justify-between items-center w-full z-10 bg-[#FFB267] shadow-lg  px-4 fixed text-black ">
+    <div className="flex justify-between items-center w-full z-10 bg-[#FFB267] shadow-lg  pl-4 fixed text-black ">
       <div className="  w-32   md:w-[18rem] ml-2 ">
         <Link to="/home" smooth duration={500}>
           <img className="rounded-3xl " src={BarkBuddieslogo} alt="" />
@@ -43,9 +49,10 @@ const Navbar = ({children}) => {
         {links.map(({ id, link }) => (
           <li
             key={id}
-            className=" font-medium px-3 cursor-pointer capitalize hover:scale-110 duration-150 "
+            className="font-medium px-3 cursor-pointer capitalize hover:scale-110 duration-150 "
           >
             <Link to={link} smooth duration={500}>
+              
               {link}
             </Link>
           </li>
@@ -90,9 +97,7 @@ const Navbar = ({children}) => {
 
       <div className=" hidden  md:flex bg-transparent">
         <Link to="/user">
-          <h1>
-            <FaUserCircle size={35} />
-          </h1>
+          <FaUserCircle size={35} />
         </Link>
       </div>
 
