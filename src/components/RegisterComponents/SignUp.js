@@ -26,9 +26,15 @@ const SignUp = () => {
             email: email ? email : null,
             photoURL: userDetail.user.photoURL? userDetail.user.photoURL : null,
             phone: phone ? phone : null ,
+            userId : userDetail.user.uid,
             created: Timestamp.now(),
-          }).then(
+
+          }).then( async () => {
+
+            await setDoc(doc(db,"userChats", userDetail.user.uid), {});
+
             navigate("/home")
+          }
           );
         }
       );
@@ -67,7 +73,10 @@ const SignUp = () => {
           photoURL: userDetails.user.photoURL? userDetails.user.photoURL : null,
           phone: phone ? phone : null ,
           created: Timestamp.now(),
-        });
+          userID : userDetails.user.uid
+        }).then( async () => {
+            await setDoc(doc(db,"userChats", userDetails.user.uid), {});
+        })
       }
   };
 

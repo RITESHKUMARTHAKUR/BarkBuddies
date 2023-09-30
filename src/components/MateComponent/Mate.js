@@ -2,6 +2,7 @@ import {AiOutlineFilter} from "react-icons/ai"
 import React, { useEffect, useState } from 'react';
 import { collection, query, onSnapshot } from "firebase/firestore";
 import {db } from "../database/firebase-config";
+import {BiUpload} from "react-icons/bi"
 import { MdDelete } from "react-icons/md";
 import {Link} from "react-router-dom"
 const Mate = () => {
@@ -9,7 +10,7 @@ const Mate = () => {
   const [fetchedData,setFetchData] = useState([]);
 
   useEffect(() => {
-    const q = query(collection(db, 'mate'))
+    const q = query(collection(db, 'Mating'))
     onSnapshot(q, (querySnapshot) => {
       setFetchData(querySnapshot.docs.map(doc => ({
         id: doc.id,
@@ -43,6 +44,9 @@ const Mate = () => {
         <button className="bg-[#D9D9D9] p-1 px-2">
           Filter <AiOutlineFilter className=" inline-block" />
         </button>
+        <button className="bg-[#D9D9D9] p-1 px-2 flex justify-center items-center">
+          <Link to="/uploadMate"> Upload <BiUpload className=" inline-block float-right ml-2 " /></Link>
+        </button>
       </div>
 
       
@@ -50,21 +54,21 @@ const Mate = () => {
       <div className=" flex flex-col mt-6  justify-center items-center">
         {fetchedData.map((task,id) => (
           <div key={task.id} id={task.id} className="lg:w-[50%] md:w-1/2  w-full hover:shadow-md hover:shadow-gray-600  duration-100 cursor-pointer mb-4   flex">
-            <Link  to="/DomgiProfile" className="   lg:h-60   block relative h-48  overflow-hidden w-[45%]">
+            <Link  to="/DomgiProfile" className="lg:h-45   block relative h-48  overflow-hidden w-[45%]">
               <img
                 alt="ecommerce"
                 className="object-cover object-center w-[490px] h-[300px] block "
                 src={task.data.photo}
               />
             </Link>
-            <div className=" bg-[#B9A89B] pb-5 px-20 w-[55%] flex flex-col ">
+            <div className=" bg-[#B9A89B] pb-5 w-[55%] flex flex-col">
               <h3 className=" text-black  font-bold text-lg tracking-widest title-font ml-2  mb-2 mt-3">
-                {task.data.name}
+                {task.data.breed}
               </h3>
-              <p className="ml-3 text-black ">{task.data.breed}</p>
-              <p className="ml-3 text-black ">{task.data.age}</p>
+              <p className="ml-3 text-black ">{task.data.year} Year {task.data.months} Months</p>
               <p className="ml-3 text-black ">{task.data.gender}</p>
               <p className="ml-3 text-black ">{task.data.nature}</p>
+              <p className="ml-3 text-black ">{task.data.disease}</p>
               <p className="ml-3 text-black ">{task.data.description}</p>
             </div>
             {/* <button onClick={deleteData(event => event.target)} >

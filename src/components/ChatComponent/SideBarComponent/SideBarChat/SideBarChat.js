@@ -3,8 +3,8 @@ import Aryan from "./../../../../images/aryan.jpeg";
 
 const SideBarChat = () => {
   return (
-    <div className='  max-h-96'>
-        <input type="text" className='text-xs outline-none border-none pl-2'  placeholder='find someone...'/> 
+    <div className='max-h-96'>
+        {/* <input type="text" className='text-xs outline-none border-none pl-2'  placeholder='find someone...'/>  */}
             
             <div className='pl-2 mt-4 flex items-center'>
                 <img src={Aryan} 

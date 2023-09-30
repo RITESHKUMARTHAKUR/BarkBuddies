@@ -13,9 +13,10 @@ import Mate from './components/MateComponent/Mate';
 import Store from './components/StoreComponent/Store';
 import User from './components/UserProfileComponent/User';
 import About from './components/AboutUsComponent/About';
-import Upload from './components/UploadComponent/Upload';
+import UploadAdpot from './components/UploadComponent/UploadAdopt';
 import { useContext } from 'react';
 import { AuthContext } from './Context/AuthContext';
+import UploadMate from './components/UploadComponent/UploadMate';
 
 
 function App() { 
@@ -39,11 +40,12 @@ function App() {
           <Route path="/about" element={<About/>}></Route> 
           <Route path="/Adopt" element={<Adopt />}></Route>
           <Route path="/Chat" element={<Chat />}></Route>
-          <Route path="/domgiprofile" element={<DomgiProfile />}></Route>
+          <Route path="/domgiprofile/:domgiID" element={<DomgiProfile/>}></Route>
           <Route path="/mate" element={<Mate />}></Route>
           <Route path="/store" element={<Store />}></Route>
           <Route path="/user" element={<ProtectedRoute><User /></ProtectedRoute> }></Route>
-          <Route path="/upload" element={<Upload />}></Route>
+          <Route path="/uploadAdpot" element={<UploadAdpot />}></Route>
+          <Route path="/uploadMate" element={<UploadMate />}></Route>
 
         </Routes>
         </Navbar>
