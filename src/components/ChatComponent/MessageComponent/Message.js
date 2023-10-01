@@ -13,8 +13,8 @@ const Message = () => {
                 <img src="https://unsplash.com/photos/BlGmdY18CFQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjc5OTQ1MTQ5&force=true" 
                 alt="" className='w-10 h-10 object-cover rounded-full' />
                 <div className='ml-2 flex flex-col'>
-                <p className='text-sm'>Ritesh Thakur</p>
-                <p className='text-xs'>How are you</p>
+                <p className='text-sm font-bold'>Aryan Soni</p>
+                <p className='text-xs'>How are you!</p>
                 </div>
         </div>
         <div className='flex absolute bottom-0 pr-[1em]  h-8 bg-gray-200 items-center justify-between w-full' >

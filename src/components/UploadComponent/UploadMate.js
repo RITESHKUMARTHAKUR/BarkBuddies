@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import AlertModal from "../AlertModalComponent/AlertModalComponent";
 import { db,storage } from "../database/firebase-config";
-import {collection, addDoc, serverTimestamp } from "firebase/firestore"
+import {collection, addDoc, serverTimestamp, setDoc, doc } from "firebase/firestore"
 import {getDownloadURL, ref,uploadBytes } from "firebase/storage"
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
@@ -43,6 +43,7 @@ const Upload = () => {
       uploadBytes(imageRef, file).then(() => {
     
         getDownloadURL(imageRef).then( async (url) => {
+
           await addDoc(collection(db, "Mating"), {
             name: Name,
             breed,
@@ -62,10 +63,31 @@ const Upload = () => {
             userID : currentUser.uid,
             userName: currentUserData.name,
             userPhoto : currentUser.photoURL
-
-          }).then( async () => {
-            navigate("/mate")
           })
+
+          await setDoc(doc(db, "mateUserDogs", currentUser.uid ), {
+            name: Name,
+            breed,
+            year,
+            months,
+            gender,
+            photo: url,
+            description,
+            nature,
+            city,
+            dogState,
+            landmark,
+            address,
+            pinCode,
+            Disease,
+            createdAt:  serverTimestamp() ,
+            userID : currentUser.uid,
+            userName: currentUserData.name,
+            userPhoto : currentUser.photoURL
+
+          });
+            navigate("/mate")
+
         })
       }); 
 

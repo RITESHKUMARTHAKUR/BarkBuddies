@@ -10,16 +10,16 @@ const SideBarChat = () => {
                 <img src={Aryan} 
                 alt="" className='w-12 h-12 object-cover rounded-full' />
                 <span className='ml-3 leading-none'>
-                <p className='text-sm'>Ritesh Kumar Thakur</p>
-                <p className='text-xs'>Hello!</p>
+                <p className='text-sm font-bold'>Aryan Soni</p>
+                <p className='text-xs'>How are you!</p>
                 </span>
             </div>
             <div className='pl-2 mt-4 flex items-center'>
                 <img src="https://unsplash.com/photos/t3zrEm88ehc/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTh8fHBlcnNvbnxlbnwwfHx8fDE2Nzk5NzA3NTE&force=true" 
                 alt="" className='w-12 h-12 object-cover rounded-full' />
                 <span className='ml-3 leading-none'>
-                <p className='text-sm'>Ritesh Kumar Thakur</p>
-                <p className='text-xs'>Hello!</p>
+                <p className='text-sm font-bold'>Harsh Khatri</p>
+                <p className='text-xs'>Hello! Your Dog is Nice!!</p>
                 </span>
             </div>
     </div>

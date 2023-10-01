@@ -40,7 +40,7 @@ const Adopt =  () => {
   <div className="container px-5 py-8 mx-auto">
     <div className="flex flex-wrap justify-between -m-4">
     {fetchedData.map((task,id) => (
-        <div className="lg:w-[32%] md:w-1/2  w-full shadow-md shadow-gray-600 rounded-3xl mb-4  ">
+      <div className="lg:w-[32%] md:w-1/2  w-full shadow-md shadow-gray-600 rounded-3xl mb-4  ">
         <Link to={`/domgiprofile/${task.id}`} className= "  hover:scale-105 duration-300  lg:h-60  block relative h-48 rounded-t-xl overflow-hidden" >
           <img alt="dogPic" className="object-cover object-center w-[490px] h-[300px] block" src={task.data.photo}/>
         </Link>
