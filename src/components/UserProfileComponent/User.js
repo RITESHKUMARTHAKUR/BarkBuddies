@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, onSnapshot, query } from "firebase/firestore";
 import { BiLogOut } from "react-icons/bi";
 import { auth, db } from "../database/firebase-config";
 import rit from "../../images/rit.jpg";
@@ -10,6 +10,28 @@ import { signOut } from "firebase/auth";
 const User = () => {
   const {currentUser} = useContext(AuthContext);
   const [docData, setDocData] = useState(null);
+  const [mateData, setFetchMateData] = useState(null);
+  const [adoptData, setFetchAdoptData] = useState(null);
+
+  useEffect(() => {
+    const q = query(collection(db, 'mateUserDogs'))
+    onSnapshot(q, (querySnapshot) => {
+      setFetchMateData(querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data()
+      })))
+    })
+  },[]);
+
+  useEffect(() => {
+    const q = query(collection(db, 'adoptUserDogs'))
+    onSnapshot(q, (querySnapshot) => {
+      setFetchAdoptData(querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        data: doc.data()
+      })))
+    })
+  },[]);
 
   useEffect(() => {
     async function fetchDocData () {
@@ -27,6 +49,10 @@ const User = () => {
 
     fetchDocData();
   }, [currentUser]);
+
+
+  console.log(adoptData);
+  console.log(mateData);
   
   return (
     <div className=" pt-[6rem] flex  items-center flex-col ">

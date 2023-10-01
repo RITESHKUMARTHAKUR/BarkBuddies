@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { doc, getDoc, getDocs, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc, getDocs, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import {FaUserCircle } from "react-icons/fa";
@@ -85,37 +85,35 @@ const DomgiProfile = () => {
     domgiData.userID+currentUser.uid;
 
     try {
+
         const res = await getDoc(doc(db , "chats", combinedId));
 
-        if(!res.exists()) {
           await setDoc(doc(db,"chats", combinedId ), {messages: [] } );
 
-          await updateDoc(doc(db, "userChats",currentUser.uid),{
-            [combinedId+".userInfo"] : {
-              uid: domgiData.userID,
-              userName: domgiData.userName,
-              userPhoto: domgiData.userPhoto
-            },
-            [combinedId+".date"] : serverTimestamp()
-          });
+          await setDoc(doc(db,"userChats", currentUser.uid ),{
+              [combinedId] : {
+                userInfo : {
+                  uid: domgiData.userID,
+                  userName: domgiData.userName,
+                  userPhoto: domgiData.userPhoto
+                },
+                date: serverTimestamp()
+            }
+          })
 
-          await updateDoc(doc(db, "userChats", domgiData.userID),{
-            [combinedId+".userInfo"] : {
-              uid: currentUser.userID,
-              userName: currentUser.name,
-              userPhoto: currentUser.photoURL
-            },
-            [combinedId+".date"] : serverTimestamp()
-          });
-
+          await setDoc(doc(db, "userChats", domgiData.userID),{
+            [combinedId] : {
+              userInfo : {
+                uid: currentUser.userID,
+                userName: currentUser.userName,
+                userPhoto: currentUser.userPhoto
+              },
+              date: serverTimestamp()
+            }});
         }
-        else {
-          navigate("/chat");
-        }
+          
 
-
-
-    } catch (error) {
+     catch (error) {
       console.log(error)
     }
 

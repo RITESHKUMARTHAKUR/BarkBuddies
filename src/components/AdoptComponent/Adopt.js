@@ -59,32 +59,27 @@ const Adopt = () => {
         </button>
       </div>
 
-      <div className="container px-5 py-8 mx-auto">
-        <div className="flex flex-wrap justify-between -m-4">
-          {fetchedData.map((task, id) => (
-            <div className="lg:w-[32%] md:w-1/2  w-full shadow-md shadow-gray-600 rounded-3xl mb-4 overflow-hidden  ">
-              <Link
-                to={`/domgiprofile/${task.id}`}
-                className="  hover:scale-105 duration-300  lg:h-60  block relative h-48 rounded-t-xl overflow-hidden"
-              >
-                <img
-                  alt="dogPic"
-                  className="object-cover  object-center w-[490px] h-[300px] block"
-                  src={task.data.photo}
-                />
-              </Link>
-              <div className=" bg-[#B9A89B] rounded-b-3xl pb-5 h-[4rem] pt-[0.5rem] ">
-                <h3 className=" text-black font-semibold  text-lg tracking-widest title-font ml-2 ">
-                  {task.data.name}
-                </h3>
+      
 
-                {/* <p className="ml-3 text-black ">{task.data.age} Years</p> */}
-              </div>
-            </div>
-          ))}
+      
+  <div className="container px-5 py-8 mx-auto">
+    <div className="flex flex-wrap justify-between -m-4">
+    {fetchedData.map((task,id) => (
+        <div className="lg:w-[32%] md:w-1/2  w-full shadow-md shadow-gray-600 rounded-3xl mb-4  ">
+        <Link to={`/domgiprofile/${task.id}`} className= "  hover:scale-105 duration-300  lg:h-60  block relative h-48 rounded-t-xl overflow-hidden" >
+          <img alt="dogPic" className="object-cover object-center w-[490px] h-[300px] block" src={task.data.photo}/>
+        </Link>
+        <div className=" bg-[#B9A89B] rounded-b-3xl pb-5">
+          <h3 className=" text-black font-semibold  text-lg tracking-widest title-font ml-2 ">{task.data.name}</h3>
+      
+          {/* <p className="ml-3 text-black ">{task.data.age} Years</p> */}
         </div>
       </div>
-    </section>
+    ))}
+
+      </div>
+    </div>
+  </section> 
   );
 };
 

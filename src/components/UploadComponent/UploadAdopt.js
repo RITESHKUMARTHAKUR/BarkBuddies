@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import AlertModal from "../AlertModalComponent/AlertModalComponent";
 import { db,storage } from "../database/firebase-config";
-import {collection, addDoc } from "firebase/firestore"
+import {collection, addDoc, serverTimestamp, setDoc, doc } from "firebase/firestore"
 import {getDownloadURL, ref,uploadBytes } from "firebase/storage"
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
@@ -10,6 +10,7 @@ import { AuthContext } from "../../Context/AuthContext";
 const Upload = () => {
   const { currentUser , currentUserData } = useContext(AuthContext)
   const navigate = useNavigate();
+
   const [Name,setName] = useState("");
   const [breed, setBreed] = useState("");
   const [year,setYear] = useState(0);
@@ -56,14 +57,36 @@ const Upload = () => {
             landmark,
             address,
             pinCode,
+            createdAt:  serverTimestamp() ,
             userID : currentUser.uid,
             userName: currentUserData.name,
             userPhoto : currentUser.photoURL
 
-          }).then(() => {
+          })
+
+            await setDoc(doc(db, "adoptUserDogs", currentUser.uid), {
+              name: Name,
+              breed,
+              year,
+              months,
+              gender,
+              photo: url,
+              description,
+              nature,
+              city,
+              dogState,
+              landmark,
+              address,
+              pinCode,
+              createdAt:  serverTimestamp() ,
+              userID : currentUser.uid,
+              userName: currentUserData.name,
+              userPhoto : currentUser.photoURL
+  
+            });
+            
             navigate("/adopt")
           })
-        })
       }); 
 
     }
