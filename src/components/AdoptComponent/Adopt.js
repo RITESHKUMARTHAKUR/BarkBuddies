@@ -73,7 +73,7 @@ const Adopt = () => {
                   src={task.data.photo}
                 />
               </Link>
-              <div className=" bg-[#B9A89B] rounded-b-3xl pb-5">
+              <div className=" bg-[#B9A89B] rounded-b-3xl pb-5 h-[4rem] pt-[0.5rem] ">
                 <h3 className=" text-black font-semibold  text-lg tracking-widest title-font ml-2 ">
                   {task.data.name}
                 </h3>

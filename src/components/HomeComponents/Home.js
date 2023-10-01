@@ -62,7 +62,7 @@ const Home = () => {
             className="w-[15em] -ml-12"
             alt="about dog photo"
           />
-          <div className="mx-8 self-start mt-8  flex flex-col gap-4">
+          <div className="mx-8 self-start mt-8  flex flex-col gap-4 ">
             <p className="font-bold text-4xl">Bark Buddies</p>
             <p>Give a shelter, get a buddy</p>
             <p>

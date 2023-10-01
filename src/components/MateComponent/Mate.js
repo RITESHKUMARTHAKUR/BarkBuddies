@@ -51,9 +51,9 @@ const Mate = () => {
 
       
 
-      <div className=" flex flex-col mt-6  justify-center items-center">
+      <div className=" flex flex-col mt-6  justify-center items-center ">
         {fetchedData.map((task,id) => (
-          <div key={task.id} id={task.id} className=" overflow-hidden lg:w-[50%] md:w-1/2  w-full hover:shadow-md hover:shadow-gray-600  duration-100 cursor-pointer mb-4   flex">
+          <div key={task.id} id={task.id} className=" overflow-hidden lg:w-[50%] md:w-1/2  w-full hover:shadow-md hover:shadow-gray-600  duration-100 cursor-pointer mb-4   flex rounded-[0.5rem]">
             <Link  to="/DomgiProfile" className="lg:h-45   block relative h-48  overflow-hidden w-[45%]">
               <img
                 alt="ecommerce"
@@ -61,7 +61,7 @@ const Mate = () => {
                 src={task.data.photo}
               />
             </Link>
-            <div className=" bg-[#B9A89B] pb-5 w-[55%] flex flex-col">
+            <div className=" bg-[#B9A89B] pb-5 w-[55%] flex flex-col ">
               <h3 className=" text-black  font-bold text-lg tracking-widest title-font ml-2  mb-2 mt-3">
                 {task.data.breed}
               </h3>
