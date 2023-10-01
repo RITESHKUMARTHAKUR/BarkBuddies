@@ -67,7 +67,7 @@ const Footer = () => {
         </div>
         <div className='w-1/3 flex  flex-col md:justify-center md:items-center'>
             <div>
-            <p className='text-2xl'>Site Map</p>
+            <p className='text-2xl'>External Links</p>
             <ol>
                 <li className='flex items-center transition-all duration-200 ease hover:ml-2'>
                     <MdOutlineKeyboardArrowRight/>

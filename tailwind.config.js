@@ -7,7 +7,10 @@ module.exports = {
     extend: {
       fontFamily: {
         'poppins': ['Poppins'],
-     }
+     },
+     minWidth: {
+      '48': '12rem', // You can adjust the width as needed
+    },
     },
   },
   plugins: [],

@@ -17,6 +17,7 @@ import UploadAdpot from './components/UploadComponent/UploadAdopt';
 import { useContext } from 'react';
 import { AuthContext } from './Context/AuthContext';
 import UploadMate from './components/UploadComponent/UploadMate';
+import Filter from './components/FilterComponent/Filter';
 
 
 function App() { 
@@ -46,6 +47,7 @@ function App() {
           <Route path="/user" element={<ProtectedRoute><User /></ProtectedRoute> }></Route>
           <Route path="/uploadAdpot" element={<UploadAdpot />}></Route>
           <Route path="/uploadMate" element={<UploadMate />}></Route>
+          <Route path="/filter" element={<Filter />}></Route>
 
         </Routes>
         </Navbar>
