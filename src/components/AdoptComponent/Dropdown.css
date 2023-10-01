@@ -1,0 +1,35 @@
+/* Dropdown.css */
+/* Style The Dropdown Button */
+.dropbtn {
+    @apply  text-black  text-base border-none cursor-pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Change background color when active */
+  .dropbtn.active {
+    /* @apply bg-gray-600; */
+  }
+  
+  /* Dropdown container */
+  .dropdown {
+    @apply relative inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    @apply hidden absolute bg-gray-200 min-w-48 shadow-md z-10;
+    top: 100%;
+    transition: display 0.3s;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    @apply block py-3 px-4 no-underline text-black;
+    transition: background-color 0.3s;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    @apply bg-gray-300;
+  }
+  

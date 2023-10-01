@@ -53,7 +53,7 @@ const Mate = () => {
 
       <div className=" flex flex-col mt-6  justify-center items-center">
         {fetchedData.map((task,id) => (
-          <div key={task.id} id={task.id} className="lg:w-[50%] md:w-1/2  w-full hover:shadow-md hover:shadow-gray-600  duration-100 cursor-pointer mb-4   flex">
+          <div key={task.id} id={task.id} className=" overflow-hidden lg:w-[50%] md:w-1/2  w-full hover:shadow-md hover:shadow-gray-600  duration-100 cursor-pointer mb-4   flex">
             <Link  to="/DomgiProfile" className="lg:h-45   block relative h-48  overflow-hidden w-[45%]">
               <img
                 alt="ecommerce"
